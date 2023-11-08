@@ -5,15 +5,16 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+    
+env:
+  WHO_TO_GREET: "${{ inputs.who-to-greet }}"
+  
 runs:
   using: 'composite'
   steps:
   - uses: swift-actions/setup-swift@v1.25.0
     with:
       swift-version: "5.9"
-  - name: Pass input as environment variable
-    run: WHO_TO_GREET="${{ inputs.who-to-greet }}"
-    shell: bash
   - name: Get swift version
     run: swift --version
     shell: bash
