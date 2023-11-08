@@ -11,8 +11,8 @@ runs:
   - uses: swift-actions/setup-swift@v1.25.0
     with:
       swift-version: "5.9"
-  - name: Change current directory to action directory
-    run: cd "${{ github.action_path }}"
+  - name: Pass input as environment variable
+    run: WHO_TO_GREET="${{ github.inputs.who-to-greet }}"
     shell: bash
   - name: Get swift version
     run: swift --version
