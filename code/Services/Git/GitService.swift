@@ -13,11 +13,17 @@ protocol VersionControlService {
 }
 
 struct GitService: VersionControlService {
-    func currentTag() {
-        
+    func currentTag() throws -> String? {
+        try tags().last
     }
     
-    private func tag() async throws -> [String] {
+    func previousTag() throws -> String? {
+        var allTags = try tags()
+        allTags.removeLast(1)
+        return allTags.last
+    }
+    
+    private func tags() throws -> [String] {
         let output = try shellOut(to: "git", arguments: ["tag", "-l"])
         let tags = output.split(separator: "\n").map {
             String($0)
