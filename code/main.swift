@@ -1,7 +1,10 @@
 import Foundation
 
-let git = GitService()
-let currentTag = try git.currentTag()
-let previousTag = try git.previousTag()
-print(currentTag)
-print(previousTag)
+let environment = ProcessInfo.processInfo.environment
+print(environment)
+print("-----")
+let args = ProcessInfo.processInfo.arguments
+print(args)
+print("-----")
+let versionReplacement = DefaultVersionReplacementService(versionControl: GitService())
+try versionReplacement.main()

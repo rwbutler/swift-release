@@ -1,0 +1,24 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+runs:
+  using: 'composite'
+  steps:
+  - uses: swift-actions/setup-swift@v1.25.0
+    with:
+      swift-version: "5.9"
+  - name: Get swift version
+    run: swift --version
+    shell: bash
+  - name: Build
+    run: swift build
+    shell: bash
+  - name: Run
+    run: swift run
+    shell: bash
+    
+

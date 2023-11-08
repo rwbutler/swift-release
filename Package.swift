@@ -19,7 +19,7 @@ let package = Package(
         )
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "SwiftRelease",
             dependencies: ["ShellOut"],
             path: "code"
