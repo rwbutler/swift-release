@@ -12,7 +12,7 @@ runs:
     with:
       swift-version: "5.9"
   - name: Pass input as environment variable
-    run: WHO_TO_GREET="${{ github.inputs.who-to-greet }}"
+    run: WHO_TO_GREET="${{ inputs.who-to-greet }}"
     shell: bash
   - name: Get swift version
     run: swift --version
