@@ -18,10 +18,10 @@ runs:
     run: swift --version
     shell: bash
   - name: Build
-    run: swift build
+    run: swift build --package-path "${{ github.action_path }}"
     shell: bash
   - name: Run
-    run: swift run
+    run: swift run --package-path "${{ github.action_path }}"
     shell: bash
     
 
